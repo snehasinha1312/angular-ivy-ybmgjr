@@ -27,13 +27,25 @@ export class UserDetailsComponent implements OnInit {
       seat_numbers: '',
       total_amount: 0
     };
-    this.dataService.setBookingDetails(currentItem);
-    this.router.navigateByUrl('/ticketdetail');
+    if(this.validate(currentItem)){
+      this.dataService.setBookingDetails(currentItem);
+      this.router.navigateByUrl('/ticketdetail');
+    }
   }
   public validate(bookingDetails: Bookingdetails){
-    if(this.bookingDetails.phone_no.toString.length<10){
+    if(this.bookingDetails.name == ''){
       alert("no. less than 10");
+      return false;
     }
+    if(this.bookingDetails.phone_no <= 999999999){
+      alert("phone number should be atleast 10 digits");
+      return false;
+    }
+    if(this.bookingDetails.no_of_tickets <=0 || this.bookingDetails.no_of_tickets > 100){
+      alert("number of tickets should be between 1 - 100");
+      return false;
+    }
+    return true;
   }
 
   ngOnInit(): void {

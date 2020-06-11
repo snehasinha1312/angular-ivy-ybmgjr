@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 
 export interface Bookingdetails {
   name: string;
-  phone_no: string;
+  phone_no: number;
   address: string;
   no_of_tickets: number;
   seat_numbers: string;
