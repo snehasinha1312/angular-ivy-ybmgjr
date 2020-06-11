@@ -17,12 +17,32 @@ export class UserTicketsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    $('.seat').click(function(){
+    var prev = [];
+    $('.seat').click(()=>{
       var val = [];
       var selected = '';
+      var newId = '';
       $(':checkbox:checked').each(function(i){
         val[i] = $(this).attr('id');
-        selected = selected + ' + ' + val[i];
+        var found = false;
+        prev.forEach(function(it){
+          if(val[i] == it){
+            found = true;
+          }
+        });
+        if(!found){
+          newId = "#" + $(this).attr('id');
+        }
+      });
+      if(val.length > this.bookingDetails.no_of_tickets){
+        $(newId).prop( "checked", false );
+        alert('Please select ' + this.bookingDetails.no_of_tickets + ' seats');
+      }
+      else{
+        prev = val;
+      }
+      prev.forEach(function(i){
+        selected = selected + " + " + i;
       });
       $('#selected').html(selected.substring(2));
       console.log(val);
