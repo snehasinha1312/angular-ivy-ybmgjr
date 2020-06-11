@@ -11,6 +11,7 @@ export class ConfirmationComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
   public bookingDetails: Bookingdetails = this.dataService.getBookingDetails();
+  value : string = JSON.stringify(this.bookingDetails);
 
   ngOnInit(): void {
     $('#name1').html(this.bookingDetails.name);
