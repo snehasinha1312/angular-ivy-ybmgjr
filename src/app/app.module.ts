@@ -1,13 +1,32 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { DataService } from './data.service';
 
+
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserTicketsComponent } from './user-tickets/user-tickets.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent ],
-  bootstrap:    [ AppComponent ]
+  declarations: [
+    AppComponent,
+    UserDetailsComponent,
+    UserTicketsComponent,
+    ConfirmationComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+     NgbModule,
+     FormsModule,
+     BrowserAnimationsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
