@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService, Bookingdetails } from './../data.service';
+import $ from 'jquery';
 
 @Component({
   selector: 'app-confirmation',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
+  public bookingDetails: Bookingdetails = this.dataService.getBookingDetails();
 
   ngOnInit(): void {
+    $('#name1').html(this.bookingDetails.name);
+    $('#address1').html(this.bookingDetails.address);
+    $('#phone_no1').html(this.bookingDetails.phone_no);
+    $('#no_of_seats1').html(this.bookingDetails.no_of_tickets);
+    $('#selected1').html(this.bookingDetails.seat_numbers);
+    console.log(this.bookingDetails);
   }
 
 }

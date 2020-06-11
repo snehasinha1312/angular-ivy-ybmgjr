@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService, Bookingdetails } from './../data.service';
 import {Router} from '@angular/router';
-declare var $: any;
+import $ from 'jquery';
 
 @Component({
   selector: 'app-user-tickets',
