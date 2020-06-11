@@ -11,6 +11,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserTicketsComponent } from './user-tickets/user-tickets.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AnQrcodeModule } from 'an-qrcode';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
      NgbModule,
      FormsModule,
-     BrowserAnimationsModule
+     BrowserAnimationsModule,
+     AnQrcodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
