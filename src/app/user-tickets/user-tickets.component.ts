@@ -45,6 +45,7 @@ export class UserTicketsComponent implements OnInit {
         selected = selected + " + " + i;
       });
       $('#selected').html(selected.substring(2));
+      $('#amount').html(prev.length * 100);
       console.log(val);
       console.log(selected.substring(2));
     });
@@ -61,6 +62,7 @@ export class UserTicketsComponent implements OnInit {
         alert('Please select ' + this.bookingDetails.no_of_tickets + ' seats');
       }
       else{
+        this.bookingDetails.total_amount = val.length * 100;
         this.bookingDetails.seat_numbers = selected.substring(2);
         this.dataService.setBookingDetails(this.bookingDetails);
         this.router.navigateByUrl('/confirmation');

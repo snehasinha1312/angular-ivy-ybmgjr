@@ -12,6 +12,7 @@ export interface Bookingdetails {
   address: string;
   no_of_tickets: number;
   seat_numbers: string;
+  total_amount: number;
 }
 
 @Injectable({
