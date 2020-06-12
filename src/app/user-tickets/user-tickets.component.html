@@ -5,7 +5,7 @@
             <hr>
             <h3 id="screen-text">Screen This Way</h3>
             <div class="exit exit--front"></div>
-            <table class="table table-borderless">
+           <!-- <table class="table table-borderless">
                 <tr class="seats">
                     <td class="seat">
                     <input type="checkbox" id="A1" />
@@ -384,6 +384,14 @@
                         <label for="I10">I10</label>
                         </td>
                 </tr>
+            </table>-->
+            <table>
+              <tr class="seats" *ngFor="let row of rows">
+                <td class="seat" *ngFor="let col of cols">
+                  <input type="checkbox" name={{row+col}} [attr.id]="row + col" />
+                  <label [for]="row + col">{{row+col}}</label>
+                </td>
+              </tr>
             </table>
             <div class="exit exit--back"></div>
         </div>

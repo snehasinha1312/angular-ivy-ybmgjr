@@ -10,13 +10,16 @@ import $ from 'jquery';
 })
 export class UserTicketsComponent implements OnInit {
 
+  cols = ['1','2','3','4','5','6','7','8','9','10'];
+  rows = ['A','B','C','D'];
+
   constructor(private dataService: DataService, private router: Router) { }
   public bookingDetails: Bookingdetails = this.dataService.getBookingDetails();
 
   public addSeatsToBookingDetails(){
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     var prev = [];
     $('.seat').click(()=>{
       var val = [];
@@ -34,7 +37,7 @@ export class UserTicketsComponent implements OnInit {
           newId = "#" + $(this).attr('id');
         }
       });
-      if(val.length > this.bookingDetails.no_of_tickets){
+      if(this.bookingDetails != null && val.length > this.bookingDetails.no_of_tickets){
         $(newId).prop( "checked", false );
         alert('Please select ' + this.bookingDetails.no_of_tickets + ' seats');
       }
@@ -70,12 +73,15 @@ export class UserTicketsComponent implements OnInit {
       console.log(val);
       console.log(selected.substring(2));
     });
-
+    if(this.bookingDetails != null){
     $('#name').html(this.bookingDetails.name);
     $('#address').html(this.bookingDetails.address);
     $('#phone_no').html(this.bookingDetails.phone_no);
     $('#no_of_seats').html(this.bookingDetails.no_of_tickets);
+    }
     console.log(this.bookingDetails);
   }
+
+  ngOnInit(): void {}
 
 }
